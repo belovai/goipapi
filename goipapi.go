@@ -6,7 +6,7 @@ import (
 	"net/http"
 )
 
-const apiURL = "http://ip-api.com/"
+const apiURL = "http://ip-api.com"
 
 type Client struct {
 	Format string
@@ -20,9 +20,9 @@ func NewClient(format string) *Client {
 	}
 }
 
-//LookupIP some ....
+//LookupIP gather informatin from IP addres via API
 func (c *Client) LookupIP(ip string) (jsonString string, err error) {
-	url := fmt.Sprintf("%s/%s/%s?fields=%s", apiURL, c.Format, ip, c.Fields)
+	url := fmt.Sprintf("%s/%s/%s?fileds=%s", apiURL, c.Format, ip, c.Fields)
 
 	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {
